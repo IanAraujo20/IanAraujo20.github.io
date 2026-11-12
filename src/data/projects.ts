@@ -137,13 +137,13 @@ export const projects: Project[] = [
     kind: "pessoal",
     group: "pessoal",
     title: "Previsão do EUR/USD com ML",
-    tagline: "Estudo de ponta a ponta com avaliação honesta",
+    tagline: "Pipeline de ML com validação rigorosa",
     description:
-      "Dá para prever se o EUR/USD sobe ou cai nos próximos 25 minutos com indicadores técnicos e uma Random Forest? Construí o pipeline completo para responder, e a resposta foi não.",
+      "Estudo de ponta a ponta sobre previsão de direção do câmbio em 25 minutos, da coleta dos dados à avaliação do modelo. O foco foi construir um experimento confiável, que mede o que realmente importa e não se deixa enganar por resultados otimistas.",
     highlights: [
-      "Coleta via MetaTrader 5 e Yahoo Finance (~16 mil candles de 5 min)",
-      "RSI e EMA como features, split temporal sem vazamento de dados",
-      "Modelo com 50,5% de acurácia contra 56,2% do baseline: documentei por que e o que testar a seguir",
+      "Coleta via MetaTrader 5 e Yahoo Finance (~16 mil candles de 5 min) e engenharia de features com RSI e EMA",
+      "Split temporal sem vazamento de dados e comparação com um baseline, para uma avaliação honesta",
+      "Random Forest com 50,5% de acurácia contra 56,2% do baseline: o experimento mostrou que esses indicadores sozinhos não bastam, e deixei documentado o que testar a seguir",
     ],
     stack: ["Python", "pandas", "scikit-learn", "pandas_ta"],
     repo: "https://github.com/IanAraujo20/ia-trading-eurusd",
