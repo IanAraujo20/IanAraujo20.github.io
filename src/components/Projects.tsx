@@ -92,12 +92,6 @@ function ProjectCard({ p }: { p: Project }) {
       <Meta p={p} />
       <h3 className="mt-3 font-display text-lg font-bold text-ink">{p.title}</h3>
       <p className="text-sm text-accent">{p.tagline}</p>
-      {p.role && (
-        <p className="mt-3 rounded-lg border border-line bg-surface-2 px-3 py-2 text-[13px] text-ink">
-          <span className="text-muted">Meu papel: </span>
-          {p.role}
-        </p>
-      )}
       <p className="mt-3 text-[14.5px]">{p.description}</p>
       <div className="text-[14.5px]">
         <Highlights items={p.highlights} />
