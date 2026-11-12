@@ -44,7 +44,7 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden">
       <div className="bg-grid pointer-events-none absolute inset-0" />
-      <div className="relative mx-auto grid max-w-5xl gap-12 px-5 pb-16 pt-16 sm:px-8 sm:pt-24 md:grid-cols-[1.25fr_1fr] md:items-center">
+      <div className="relative mx-auto grid max-w-5xl gap-12 px-5 pb-16 pt-28 sm:px-8 sm:pt-36 md:grid-cols-[1.25fr_1fr] md:items-center">
         <div className="fade-up">
           <p className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-xs text-body">
             <span className="pulse-dot h-2 w-2 rounded-full bg-accent" />

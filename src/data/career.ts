@@ -10,6 +10,7 @@ export const experience = [
       "APIs REST em NestJS + Prisma que integram o ERP a sistemas de clientes",
       "Deploy e sustentação em produção e homologação",
       "Recursos fiscais no ERP em Delphi/Firebird (NFC-e, IBS/CBS)",
+      "Condução técnica de projetos novos (Central, ClinOmni360, CimentOnline), orientando estagiários e revisando entregas",
       "Laboratórios de rede segura em nuvem (hub-and-spoke, firewall, VPN)",
       "Comecei no suporte ao ERP e passei para o desenvolvimento",
     ],

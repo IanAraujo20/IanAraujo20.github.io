@@ -13,7 +13,7 @@ export default function Home() {
       <main>
         <Hero />
 
-        <Section id="projetos" eyebrow="01 · projetos" title="O que eu construí">
+        <Section id="projetos" eyebrow="01 · projetos" title="O que eu construí e lidero" stagger>
           <Projects />
         </Section>
 

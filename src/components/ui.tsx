@@ -1,21 +1,34 @@
 // Peças pequenas reaproveitadas no site inteiro.
+import { Reveal } from "./Reveal";
 
 export function Section({
   id,
   eyebrow,
   title,
   children,
+  stagger = false,
 }: {
   id: string;
   eyebrow: string;
   title: string;
   children: React.ReactNode;
+  /** true quando o conteúdo já revela cada item por conta própria */
+  stagger?: boolean;
 }) {
   return (
     <section id={id} className="mx-auto max-w-5xl px-5 py-16 sm:px-8 sm:py-20">
-      <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">{eyebrow}</p>
-      <h2 className="mt-2 font-display text-2xl font-bold text-ink sm:text-3xl">{title}</h2>
-      <div className="mt-8">{children}</div>
+      <Reveal className="section-line mb-14">{null}</Reveal>
+      <Reveal>
+        <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">{eyebrow}</p>
+        <h2 className="mt-2 font-display text-2xl font-bold text-ink sm:text-3xl">{title}</h2>
+      </Reveal>
+      {stagger ? (
+        <div className="mt-8">{children}</div>
+      ) : (
+        <Reveal className="mt-8" delay={120} threshold={0.01}>
+          {children}
+        </Reveal>
+      )}
     </section>
   );
 }

@@ -56,7 +56,7 @@ export default function NexusCaseStudy() {
   return (
     <>
       <Header />
-      <main className="mx-auto max-w-3xl px-5 py-14 sm:px-8 sm:py-20">
+      <main className="mx-auto max-w-3xl px-5 pb-14 pt-28 sm:px-8 sm:pb-20 sm:pt-32">
         <a href="/#projetos" className="text-sm text-muted hover:text-accent">
           ← Voltar para projetos
         </a>
