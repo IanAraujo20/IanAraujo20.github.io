@@ -49,8 +49,7 @@ function Shot({ p }: { p: Project }) {
 }
 
 function Meta({ p }: { p: Project }) {
-  const label =
-    p.group === "lideranca" ? "liderando" : p.kind === "trabalho" ? "trabalho" : "projeto pessoal";
+  const label = "projeto pessoal";
   return (
     <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-xs text-muted">
       <span>{label}</span>
@@ -66,7 +65,7 @@ function Meta({ p }: { p: Project }) {
 
 function FeaturedProject({ p }: { p: Project }) {
   return (
-    <article className="rounded-2xl border border-accent/40 bg-gradient-to-br from-surface to-bg p-6 sm:p-8">
+    <article className="rounded-3xl border border-accent/40 bg-gradient-to-br from-surface to-bg p-6 sm:p-8">
       <div className="flex flex-wrap items-center gap-3">
         <span className="rounded-md bg-accent px-2 py-0.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-bg">Destaque</span>
         <span className="font-mono text-xs text-muted">projeto pessoal</span>
@@ -85,11 +84,14 @@ function FeaturedProject({ p }: { p: Project }) {
   );
 }
 
-function ProjectCard({ p }: { p: Project }) {
+function ProjectCard({ p, n }: { p: Project; n?: number }) {
   return (
-    <article className="lift flex h-full flex-col rounded-2xl border border-line bg-surface p-6 hover:border-accent/50">
+    <article className="lift flex h-full flex-col rounded-3xl border border-line bg-surface p-6 hover:border-accent/50 sm:p-7">
       <Shot p={p} />
-      <Meta p={p} />
+      <div className="flex items-start justify-between gap-3">
+        <Meta p={p} />
+        {n !== undefined && <span className="font-mono text-sm text-muted">{String(n).padStart(2, "0")}</span>}
+      </div>
       <h3 className="mt-3 font-display text-lg font-bold text-ink">{p.title}</h3>
       <p className="text-sm text-accent">{p.tagline}</p>
       <p className="mt-3 text-[14.5px]">{p.description}</p>
@@ -108,42 +110,23 @@ function ProjectCard({ p }: { p: Project }) {
   );
 }
 
-function Group({ title, hint, list, cols }: { title: string; hint?: string; list: Project[]; cols: string }) {
-  if (!list.length) return null;
-  return (
-    <div>
-      <Reveal>
-        <h3 className="font-display text-lg font-bold text-ink">{title}</h3>
-        {hint && <p className="mt-1 max-w-2xl text-sm text-muted">{hint}</p>}
-      </Reveal>
-      <div className={`mt-5 grid gap-6 ${cols}`}>
-        {list.map((p, i) => (
-          <Reveal key={p.slug} delay={i * 110}>
-            <ProjectCard p={p} />
-          </Reveal>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 export function Projects() {
-  const by = (g: Project["group"]) => projects.filter((p) => p.group === g);
+  const featured = projects.filter((p) => p.tier === "featured");
+  const others = projects.filter((p) => p.tier === "other");
   return (
-    <div className="space-y-14">
-      {by("destaque").map((p) => (
+    <div className="space-y-6">
+      {featured.map((p) => (
         <Reveal key={p.slug}>
           <FeaturedProject p={p} />
         </Reveal>
       ))}
-      <Group
-        title="Liderando o desenvolvimento"
-        hint="Projetos que conduzo de ponta a ponta: decisões técnicas, revisão de código e orientação de estagiários."
-        list={by("lideranca")}
-        cols="md:grid-cols-3"
-      />
-      <Group title="Projetos pessoais" list={by("pessoal")} cols="md:grid-cols-2" />
-      <Group title="Trabalho e infraestrutura" list={by("trabalho")} cols="md:grid-cols-3" />
+      <div className="grid gap-6 md:grid-cols-2">
+        {others.map((p, i) => (
+          <Reveal key={p.slug} delay={i * 110}>
+            <ProjectCard p={p} n={i + 1} />
+          </Reveal>
+        ))}
+      </div>
     </div>
   );
 }

@@ -18,6 +18,6 @@ export const profile = {
 
 export const about = [
   "Comecei na tecnologia pelo suporte a um ERP e fui para o desenvolvimento entendendo, na prática, como o sistema é usado por quem depende dele todos os dias. Isso moldou a forma como eu trabalho: antes de implementar, quero entender por que cada coisa funciona do jeito que funciona.",
-  "Hoje divido meu tempo entre duas frentes. No trabalho, mantenho APIs e integrações em produção, com regras fiscais complexas e um banco legado no meio, e conduzo projetos novos orientando estagiários: escrevo as demandas, defino os critérios de aceite e reviso cada entrega. Nos projetos pessoais, construo sistemas de IA: o Nexus, um assistente multiagente com memória persistente, é onde eu testo ideias sobre como agentes podem lembrar, decidir e agir.",
+  "Hoje divido meu tempo entre duas frentes. No trabalho, mantenho APIs e integrações em produção, com regras fiscais complexas e um banco legado no meio, e conduzo projetos novos com estagiários: distribuo as demandas, reviso as entregas e aprovo ou peço ajustes. Nos projetos pessoais, construo sistemas de IA: o Nexus, um assistente multiagente com memória persistente, é onde eu testo ideias sobre como agentes podem lembrar, decidir e agir.",
   "Meu objetivo de longo prazo é trabalhar com pesquisa e engenharia de IA de fronteira.",
 ];

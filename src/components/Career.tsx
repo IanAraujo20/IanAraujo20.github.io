@@ -26,7 +26,7 @@ export function Experience() {
       </ol>
 
       <div className="space-y-6">
-        <div className="rounded-2xl border border-line bg-surface p-6">
+        <div className="rounded-3xl border border-line bg-surface p-6">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">Formação</p>
           <h3 className="mt-3 font-display font-bold text-ink">{education.course}</h3>
           <p className="text-sm">
@@ -41,13 +41,16 @@ export function Experience() {
 
 export function Skills() {
   return (
-    <div className="grid gap-x-10 gap-y-7 sm:grid-cols-2 lg:grid-cols-3">
-      {skills.map((s) => (
-        <div key={s.group}>
-          <h3 className="font-display text-sm font-bold text-ink">{s.group}</h3>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {s.items.map((i) => (
-              <Tag key={i}>{i}</Tag>
+    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {skills.map((s, i) => (
+        <div key={s.group} className="lift rounded-3xl border border-line bg-surface p-6 hover:border-accent/50">
+          <div className="flex items-center justify-between">
+            <h3 className="font-display text-base font-bold text-ink">{s.group}</h3>
+            <span className="font-mono text-sm text-muted">{String(i + 1).padStart(2, "0")}</span>
+          </div>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {s.items.map((it) => (
+              <Tag key={it}>{it}</Tag>
             ))}
           </div>
         </div>

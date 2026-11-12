@@ -24,7 +24,10 @@ export function Header() {
 
   // Destaca no menu a seção que está na tela
   useEffect(() => {
-    const sections = links.map((l) => document.getElementById(l.id)).filter((el): el is HTMLElement => !!el);
+    // "stack" não tem item no menu, mas é observada para o destaque sair de "Experiência" ao chegar nela
+    const sections = [...links.map((l) => l.id), "stack"]
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => !!el);
     if (!sections.length) return;
     const io = new IntersectionObserver(
       (entries) => {

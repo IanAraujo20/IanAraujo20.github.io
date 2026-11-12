@@ -5,12 +5,15 @@ export function Section({
   id,
   eyebrow,
   title,
+  muted,
   children,
   stagger = false,
 }: {
   id: string;
   eyebrow: string;
   title: string;
+  /** continuação do título, em tom mais apagado */
+  muted?: string;
   children: React.ReactNode;
   /** true quando o conteúdo já revela cada item por conta própria */
   stagger?: boolean;
@@ -20,7 +23,10 @@ export function Section({
       <Reveal className="section-line mb-14">{null}</Reveal>
       <Reveal>
         <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">{eyebrow}</p>
-        <h2 className="mt-2 font-display text-2xl font-bold text-ink sm:text-3xl">{title}</h2>
+        <h2 className="mt-2 max-w-3xl font-display text-3xl font-bold leading-[1.15] tracking-tight text-ink sm:text-4xl">
+          {title}
+          {muted && <span className="text-muted"> {muted}</span>}
+        </h2>
       </Reveal>
       {stagger ? (
         <div className="mt-8">{children}</div>

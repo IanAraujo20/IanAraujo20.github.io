@@ -3,7 +3,7 @@ import { ArrowIcon, ButtonLink } from "./ui";
 
 export function Contact() {
   return (
-    <div className="rounded-2xl border border-line bg-gradient-to-br from-surface to-bg p-8 sm:p-10">
+    <div className="rounded-3xl border border-line bg-gradient-to-br from-surface to-bg p-8 sm:p-10">
       <h3 className="max-w-2xl font-display text-2xl font-bold text-ink sm:text-3xl">
         Vamos conversar sobre IA aplicada, integrações ou o próximo projeto?
       </h3>
