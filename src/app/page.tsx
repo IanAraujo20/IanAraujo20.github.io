@@ -13,19 +13,19 @@ export default function Home() {
       <main>
         <Hero />
 
-        <Section id="projetos" eyebrow="01 · projetos" title="O que eu construí." muted="Projetos pessoais, de ponta a ponta." stagger>
+        <Section id="projetos" eyebrow="01 · projetos" title="O que eu construí." muted="Projetos pessoais, de ponta a ponta." stagger bg="grid">
           <Projects />
         </Section>
 
-        <Section id="experiencia" eyebrow="02 · trajetória" title="Experiência e formação." muted="Do suporte ao desenvolvimento.">
+        <Section id="experiencia" eyebrow="02 · trajetória" title="Experiência e formação." muted="Do suporte ao desenvolvimento." bg="dots">
           <Experience />
         </Section>
 
-        <Section id="stack" eyebrow="03 · stack" title="Ferramentas do dia a dia." muted="De APIs a agentes de IA.">
+        <Section id="stack" eyebrow="03 · stack" title="Ferramentas do dia a dia." muted="De APIs a agentes de IA." bg="cross">
           <Skills />
         </Section>
 
-        <Section id="sobre" eyebrow="04 · sobre" title="Como eu trabalho." muted="Entender antes de implementar.">
+        <Section id="sobre" eyebrow="04 · sobre" title="Como eu trabalho." muted="Entender antes de implementar." bg="glow">
           <div className="max-w-3xl space-y-4 text-[16px]">
             {about.map((p) => (
               <p key={p.slice(0, 24)}>{p}</p>
@@ -33,7 +33,7 @@ export default function Home() {
           </div>
         </Section>
 
-        <Section id="contato" eyebrow="05 · contato" title="Fale comigo." muted="Vamos conversar.">
+        <Section id="contato" eyebrow="05 · contato" title="Fale comigo." muted="Vamos conversar." bg="grid-bottom">
           <Contact />
         </Section>
       </main>

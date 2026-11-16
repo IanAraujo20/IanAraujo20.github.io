@@ -1,6 +1,9 @@
 // Peças pequenas reaproveitadas no site inteiro.
 import { Reveal } from "./Reveal";
 
+/** Fundos decorativos das seções (definidos em globals.css); cada seção usa um diferente. */
+export type SectionBackground = "grid" | "dots" | "cross" | "glow" | "grid-bottom";
+
 export function Section({
   id,
   eyebrow,
@@ -8,6 +11,7 @@ export function Section({
   muted,
   children,
   stagger = false,
+  bg,
 }: {
   id: string;
   eyebrow: string;
@@ -17,24 +21,28 @@ export function Section({
   children: React.ReactNode;
   /** true quando o conteúdo já revela cada item por conta própria */
   stagger?: boolean;
+  bg?: SectionBackground;
 }) {
   return (
-    <section id={id} className="mx-auto max-w-5xl px-5 py-16 sm:px-8 sm:py-20">
-      <Reveal className="section-line mb-14">{null}</Reveal>
-      <Reveal>
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">{eyebrow}</p>
-        <h2 className="mt-2 max-w-3xl font-display text-3xl font-bold leading-[1.15] tracking-tight text-ink sm:text-4xl">
-          {title}
-          {muted && <span className="text-muted"> {muted}</span>}
-        </h2>
-      </Reveal>
-      {stagger ? (
-        <div className="mt-8">{children}</div>
-      ) : (
-        <Reveal className="mt-8" delay={120} threshold={0.01}>
-          {children}
+    <section id={id} className="relative overflow-hidden">
+      {bg && <div aria-hidden="true" className={`section-bg section-bg-${bg} pointer-events-none absolute inset-0`} />}
+      <div className="relative mx-auto max-w-5xl px-5 py-16 sm:px-8 sm:py-20">
+        <Reveal className="section-line mb-14">{null}</Reveal>
+        <Reveal>
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">{eyebrow}</p>
+          <h2 className="mt-2 max-w-3xl font-display text-3xl font-bold leading-[1.15] tracking-tight text-ink sm:text-4xl">
+            {title}
+            {muted && <span className="text-muted"> {muted}</span>}
+          </h2>
         </Reveal>
-      )}
+        {stagger ? (
+          <div className="mt-8">{children}</div>
+        ) : (
+          <Reveal className="mt-8" delay={120} threshold={0.01}>
+            {children}
+          </Reveal>
+        )}
+      </div>
     </section>
   );
 }

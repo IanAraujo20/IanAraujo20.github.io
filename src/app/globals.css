@@ -46,6 +46,52 @@ body {
   mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 75%);
 }
 
+/* ---------- Fundos das seções: mesma linguagem do topo (linhas finas + turquesa), um por seção ---------- */
+.section-bg {
+  --bg-line: color-mix(in srgb, var(--color-line) 70%, transparent);
+}
+
+/* Projetos: grade que se apaga a partir do canto superior direito */
+.section-bg-grid {
+  background-image:
+    linear-gradient(to right, var(--bg-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--bg-line) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 70% 55% at 100% 0%, black 15%, transparent 75%);
+}
+
+/* Experiência: pontos, mais fortes na lateral esquerda (onde fica a linha do tempo) */
+.section-bg-dots {
+  background-image: radial-gradient(circle, color-mix(in srgb, var(--color-accent) 38%, var(--color-line)) 1.1px, transparent 1.6px);
+  background-size: 26px 26px;
+  mask-image: radial-gradient(ellipse 60% 75% at 0% 40%, black 10%, transparent 72%);
+}
+
+/* Stack: cruzes de mira, como papel milimetrado de projeto */
+.section-bg-cross {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56'%3E%3Cpath d='M28 22v12M22 28h12' stroke='%232a3b4c' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 20%, transparent 78%);
+}
+
+/* Sobre: brilho turquesa suave com um toque de pontos */
+.section-bg-glow {
+  background-image:
+    radial-gradient(ellipse 55% 60% at 85% 35%, color-mix(in srgb, var(--color-accent) 11%, transparent), transparent 70%),
+    radial-gradient(circle, var(--bg-line) 1px, transparent 1.5px);
+  background-size: auto, 30px 30px;
+}
+
+/* Contato: grade que sobe a partir da base, fechando a página */
+.section-bg-grid-bottom {
+  background-image:
+    radial-gradient(ellipse 60% 45% at 50% 100%, color-mix(in srgb, var(--color-accent) 9%, transparent), transparent 75%),
+    linear-gradient(to right, var(--bg-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--bg-line) 1px, transparent 1px);
+  background-size: auto, 44px 44px, 44px 44px;
+  mask-image: radial-gradient(ellipse 85% 65% at 50% 100%, black 25%, transparent 78%);
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .fade-up {
     animation: fade-up 0.6s ease-out both;

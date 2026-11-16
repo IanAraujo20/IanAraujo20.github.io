@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { profile } from "@/data/profile";
+import { ResumeModal } from "./ResumeModal";
 
 const links = [
   { id: "projetos", label: "Projetos" },
@@ -14,6 +15,7 @@ const links = [
 export function Header() {
   const [compact, setCompact] = useState(false);
   const [active, setActive] = useState<string | null>(null);
+  const [resumeOpen, setResumeOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setCompact(window.scrollY > 48);
@@ -40,6 +42,7 @@ export function Header() {
   }, []);
 
   return (
+    <>
     <header className="pointer-events-none fixed inset-x-0 top-0 z-40 flex justify-center px-3 pt-3 sm:pt-4">
       <nav
         aria-label="Principal"
@@ -70,14 +73,18 @@ export function Header() {
           ))}
         </ul>
 
-        <a
-          href={profile.resume}
-          download=""
+        <button
+          type="button"
+          onClick={() => setResumeOpen(true)}
+          aria-haspopup="dialog"
           className="rounded-full border border-accent/60 px-3.5 py-1.5 text-xs font-semibold text-accent transition hover:bg-accent hover:text-bg"
         >
           Currículo
-        </a>
+        </button>
       </nav>
     </header>
+    {/* Fora do <header>: ele tem pointer-events-none e a pílula cria um contêiner próprio para elementos fixos. */}
+    <ResumeModal open={resumeOpen} onClose={() => setResumeOpen(false)} />
+    </>
   );
 }
